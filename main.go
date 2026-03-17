@@ -5,9 +5,7 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
-	"os/exec"
 	"path/filepath"
-	"runtime"
 	"slices"
 	"strings"
 )
@@ -83,17 +81,6 @@ func saveState(s State) {
 	os.WriteFile(stateFile(), data, 0644)
 }
 
-func openFile(path string) {
-	switch runtime.GOOS {
-	case "darwin":
-		exec.Command("open", path).Start()
-	case "linux":
-		exec.Command("xdg-open", path).Start()
-	case "windows":
-		exec.Command("cmd", "/c", "start", "", path).Start()
-	}
-}
-
 func cmdPick() {
 	all, err := getAllPhotos()
 	if err != nil {
@@ -147,8 +134,6 @@ func cmdPick() {
 	fmt.Printf("📷 選ばれた写真: %s\n", chosen)
 	fmt.Printf("   パス: %s\n", fullPath)
 	fmt.Printf("   残り: %d / %d 枚\n", len(available)-1, len(all))
-
-	openFile(fullPath)
 }
 
 func cmdStatus() {
