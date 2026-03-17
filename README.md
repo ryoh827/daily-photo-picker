@@ -1,6 +1,6 @@
 # daily-photo-picker
 
-Amazon Photosの写真からランダムに1枚を選ぶCLIツール。
+写真フォルダからランダムに1枚を選ぶCLIツール。
 使用済みの写真は記録され、次回以降除外される。新しい写真が追加されると自動的に候補に含まれる。
 
 ## セットアップ
@@ -11,7 +11,7 @@ go build -o daily-photo-picker .
 
 ## 写真の配置
 
-ビルドした実行ファイルと同じディレクトリに `photos/` フォルダを作成し、Amazon Photosからダウンロードした写真を配置する。サブフォルダにも対応。
+ビルドした実行ファイルと同じディレクトリに `photos/` フォルダを作成し、写真を配置する。サブフォルダにも対応。
 
 ```
 daily-photo-picker
@@ -26,7 +26,7 @@ photos/
 ## 使い方
 
 ```bash
-./daily-photo-picker          # ランダムに1枚選んでビューアで開く
+./daily-photo-picker          # ランダムに1枚選んでパスを表示
 ./daily-photo-picker status   # 状態を表示（全写真数・使用済み・残り）
 ./daily-photo-picker reset    # 使用済みリストをリセット
 ./daily-photo-picker help     # ヘルプ
